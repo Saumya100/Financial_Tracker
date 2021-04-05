@@ -1,0 +1,66 @@
+<section fxLayoutGap="10px">
+    <!-- <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <div fxLayout="column" fxLayoutAlign="center center" class="div-child">
+                <p>Mutual Fund and Equity</p>
+                <div fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <div>
+                        <p>Mutual Fund </p>
+                        <app-mutual-fund></app-mutual-fund>
+                    </div>
+                    <div>
+                        <p>Equity</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div fxLayout="column" fxLayoutAlign="center center" class="div-child">
+                <p>FD & RD</p>
+                <div fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <div style="background-color: mediumslateblue;">
+                        <p>FD </p>
+
+                    </div>
+                    <div style="background-color:olivedrab;">
+                        <p>RD</p>
+
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div fxLayoutAlign="center center" class="div-child" style="background-color: lavender;">
+                <p>Insurance</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+    </mat-grid-list> -->
+
+
+    <div fxLayout="column" fxLayoutAlign="center center" class="div-child">
+        <div fxLayoutAlign="center center" fxLayoutGap="10px" style="margin-top: 10px;">
+            <mat-form-field>
+                <mat-label>Select Investment Area</mat-label>
+                <mat-select [(value)]="selected">
+                    <mat-option *ngFor="let investmentArea of investmentAreas" [value]="investmentArea">
+                        {{investmentArea}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+        </div>
+
+        <div fxLayoutAlign="center center" fxLayoutGap="10px"> 
+            <app-mutual-fund *ngIf="selected==='Mutual Fund'"></app-mutual-fund>   
+            <app-equity *ngIf="selected==='Equity'"></app-equity>   
+            <app-fixed-deposit *ngIf="selected==='Fixed Deposit'"></app-fixed-deposit>  
+            <app-recurring-deposit *ngIf="selected==='Recurring Deposit'"></app-recurring-deposit>
+            <app-other-investment *ngIf="selected==='Others'"></app-other-investment>
+        </div>
+
+    </div>
+
+</section>

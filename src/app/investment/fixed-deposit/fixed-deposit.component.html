@@ -1,0 +1,34 @@
+<section>
+    <div fxLayout fxLayoutAlign="center center">
+        <p>Fixed Deposit</p>
+    </div>
+    
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="fdForm"
+        (ngSubmit)="onSubmit()">        
+        <mat-form-field>
+            <mat-label>Enter Place/Area</mat-label>
+            <input type="text" matInput placeholder="Place/Area" formControlName="place">
+        </mat-form-field>               
+        <mat-form-field>
+            <mat-label>Enter Invested Amount</mat-label>
+            <input type="number" matInput placeholder="Invested Amount" formControlName="investedAmt">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter Maturity Amount</mat-label>
+            <input type="number" matInput placeholder="Maturity Amount" formControlName="maturityAmt">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Maturity Date</mat-label>
+            <input matInput [matDatepicker]="picker" [max] ="maxDate" [min]="minDate" placeholder="Choose a date"
+                formControlName="maturityDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> 
+        <mat-form-field>
+            <mat-label>Enter Purpose</mat-label>
+            <input type="text" matInput placeholder="Purpose" formControlName="purpose">
+        </mat-form-field>        
+        <button type="submit" mat-raised-button color="primary" [disabled]='fdForm.invalid'>Submit</button>
+    </form>
+</section>
+

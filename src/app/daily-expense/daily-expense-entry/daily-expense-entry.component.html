@@ -1,0 +1,29 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayoutGap="20px">
+        <mat-form-field>
+            <mat-label>Enter Year</mat-label>
+            <input type="text" matInput placeholder="Year" [(ngModel)]="selectedYear">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Month</mat-label>
+            <mat-select [(ngModel)]="selectedMonth" (selectionChange)="onSelectionChanged($event)">
+              <mat-option *ngFor="let month of months" [value]="month.value">
+                {{month.text}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field> 
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" fxGap="10px">
+        <ag-grid-angular style="width: 1350px; height: 900px;" 
+            #agGrid
+            class="ag-theme-balham" 
+            [gridOptions]="gridOptions"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            (cellValueChanged)="onCellValueChanged($event)"
+            rowHeight="25"  >
+        </ag-grid-angular>
+        <br>
+        <button type="submit" mat-raised-button color="primary" (click)="saveExpense()">Save</button>
+    </div>
+</div>

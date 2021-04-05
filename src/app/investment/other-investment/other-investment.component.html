@@ -1,0 +1,35 @@
+<section>
+    <div fxLayout fxLayoutAlign="center center">
+        <p>Other Investments</p>
+    </div>
+    
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="otherInvForm"
+        (ngSubmit)="onSubmit()">        
+        <mat-form-field>
+            <mat-label>Enter Year</mat-label>
+            <input type="text" matInput placeholder="Year" formControlName="year">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Month</mat-label>
+            <mat-select formControlName="month">
+              <mat-option *ngFor="let month of months" [value]="month.value">
+                {{month.text}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>  
+        <mat-form-field>
+            <mat-label>Select Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let otherInvestment of otherInvestments" [value]="otherInvestment">
+                {{otherInvestment}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>       
+        <mat-form-field>
+            <mat-label>Enter Invested Amount</mat-label>
+            <input type="number" matInput placeholder="Invested Amount" formControlName="investedAmt">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" [disabled]='otherInvForm.invalid'>Submit</button>
+    </form>
+</section>
+

@@ -1,0 +1,23 @@
+.divStyle {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    /* border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black; */
+    border: 1px 1px 1px solid black;
+
+
+    /* 1px solid black */
+}
+
+
+.ag-header-cell-label .ag-header-cell-text {
+    /* Force the width corresponding at how much width
+    we need once the text is laid out vertically */
+    width: 30px;
+    transform: rotate(90deg);
+    margin-top: 50px;
+    /* Since we are rotating a span */
+    display: inline-block;
+}

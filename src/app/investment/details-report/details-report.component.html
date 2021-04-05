@@ -1,0 +1,73 @@
+<input type="button" (click)="showMFReport()" value="Show Report">
+
+<div fxLayout fxLayoutAlign="center center" fxLayoutGap="10px">
+  <div class="divMFReport">
+    <mat-table [dataSource]="dsMutualFund" matSort>
+      <!-- Year Column -->
+      <ng-container matColumnDef="year">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Year </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.year}} </mat-cell>
+      </ng-container>
+
+      <!-- Month Column -->
+      <ng-container matColumnDef="month">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Month </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.month}} </mat-cell>
+      </ng-container>
+
+      <!-- Platform Column -->
+      <ng-container matColumnDef="platform">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Platform </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.platform}} </mat-cell>
+      </ng-container>
+
+      <!-- Investment Amount Column -->
+      <ng-container matColumnDef="investedAmt">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Invested Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.investedAmt | number}} </mat-cell>
+      </ng-container>
+
+      <!-- Current Amount Column -->
+      <ng-container matColumnDef="currentAmt">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Current Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.currentAmt | number}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="divMFReport">
+    <mat-table [dataSource]="dsEquity" matSort>
+      <!-- Year Column -->
+      <ng-container matColumnDef="year">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Year </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.year}} </mat-cell>
+      </ng-container>
+
+      <!-- Month Column -->
+      <ng-container matColumnDef="month">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Month </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.month}} </mat-cell>
+      </ng-container>
+
+      <!-- Investment Amount Column -->
+      <ng-container matColumnDef="investedAmt">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Invested Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.investedAmt | number}} </mat-cell>
+      </ng-container>
+
+      <!-- Current Amount Column -->
+      <ng-container matColumnDef="currentAmt">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Current Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.currentAmt | number}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColsEquity"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColsEquity;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

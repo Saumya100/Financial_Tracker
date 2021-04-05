@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "financial-tracker-bfa1c"
+  },
+  "targets": {
+    "financial-tracker-bfa1c": {
+      "hosting": {
+        "financial-tracker": [
+          "financial-tracker-bfa1c"
+        ]
+      }
+    }
+  }
+}

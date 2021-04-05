@@ -1,0 +1,9 @@
+.div-child{
+    width: 95%;
+    border: 1px solid black;
+}
+
+mat-grid-tile {
+    /* background: lightblue; */
+}
+  

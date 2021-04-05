@@ -1,0 +1,50 @@
+<section>
+    <div fxLayout fxLayoutAlign="center center">
+        <p>Recurring Deposit</p>
+    </div>
+    
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="rdForm"
+        (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Enter Year</mat-label>
+            <input type="text" matInput placeholder="Year" formControlName="year">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Month</mat-label>
+            <mat-select formControlName="month">
+              <mat-option *ngFor="let month of months" [value]="month.value">
+                {{month.text}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>        
+        <mat-form-field>
+            <mat-label>Enter Place/Area</mat-label>
+            <input type="text" matInput placeholder="Place/Area" formControlName="place">
+        </mat-form-field>               
+        <mat-form-field>
+            <mat-label>Enter Invested Amount</mat-label>
+            <input type="number" matInput placeholder="Invested Amount" formControlName="investedAmt">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter Current Amount</mat-label>
+            <input type="number" matInput placeholder="Current Amount" formControlName="currentAmt">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter Maturity Amount</mat-label>
+            <input type="number" matInput placeholder="Maturity Amount" formControlName="maturityAmt">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Maturity Date</mat-label>
+            <input matInput [matDatepicker]="picker" [max] ="maxDate" [min]="minDate" placeholder="Choose a date"
+                formControlName="maturityDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> 
+        <mat-form-field>
+            <mat-label>Enter Purpose</mat-label>
+            <input type="text" matInput placeholder="Purpose" formControlName="purpose">
+        </mat-form-field>        
+        <button type="submit" mat-raised-button color="primary" [disabled]='rdForm.invalid'>Submit</button>
+    </form>
+</section>
+
